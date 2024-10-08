@@ -1,0 +1,55 @@
+package plus.jdk.flex.common.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.net.URI;
+import java.util.Properties;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ServiceInstance {
+
+    /**
+     * 服务实例的网络地址。例如：127.0.0.1:8080
+     */
+    private String address;
+
+    /**
+     * 服务端提供的接收地址的路径信息。
+     * 可覆盖全局配置
+     */
+    private String path = "/";
+
+    /**
+     * 服务实例的权重，用于负载均衡。
+     * 权重越大，被分配到的流量越大
+     */
+    private Integer weight = 20;
+
+    /**
+     * 存储服务实例的自定义属性。
+     * 这些属性可以用来扩展服务实例的信息，例如元数据等。
+     */
+    private Properties properties;
+
+    /**
+     * 获取地址中的端口号。
+     * @return 端口号。
+     */
+    public Integer getPort() {
+        URI uri = URI.create(address);
+        return uri.getPort();
+    }
+
+    /**
+     * 获取地址中的主机名。
+     * @return 主机名字符串。
+     */
+    public String getHost() {
+        URI uri = URI.create(address);
+        return uri.getHost();
+    }
+}
