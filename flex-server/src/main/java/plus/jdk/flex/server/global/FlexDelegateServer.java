@@ -10,6 +10,7 @@ import plus.jdk.flex.common.model.RequestContext;
 import plus.jdk.flex.common.model.ResponseContext;
 import plus.jdk.flex.server.listener.IFlexServer;
 import plus.jdk.flex.server.config.ServerRegistry;
+import plus.jdk.flex.server.listener.VertxFlexServer;
 import plus.jdk.flex.server.model.FlexService;
 
 import java.lang.reflect.Method;
@@ -42,6 +43,20 @@ public class FlexDelegateServer {
      */
     private final ConcurrentHashMap<Class<?>, FlexService> flexServicesMap = new ConcurrentHashMap<>();
 
+    /**
+     * 构造一个新的 FlexDelegateServer 对象。
+     * 初始化 serverRegistry 和 flexServer 成员变量。
+     */
+    public FlexDelegateServer() {
+        this.serverRegistry = new ServerRegistry();
+        this.flexServer = new VertxFlexServer();
+    }
+
+    /**
+     * 构造一个FlexDelegateServer对象。
+     * @param serverRegistry 服务器注册表对象，用于管理和维护服务器实例。
+     * @param flexServer IFlexServer接口实现，提供与Flex服务器交互的方法。
+     */
     public FlexDelegateServer(ServerRegistry serverRegistry, IFlexServer flexServer) {
         this.serverRegistry = serverRegistry;
         this.flexServer = flexServer;

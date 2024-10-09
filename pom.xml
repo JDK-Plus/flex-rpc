@@ -12,6 +12,7 @@
         <module>flex-common</module>
         <module>flex-client</module>
         <module>flex-server</module>
+        <module>flex-test</module>
     </modules>
 
     <properties>
