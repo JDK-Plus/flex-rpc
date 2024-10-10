@@ -13,9 +13,14 @@ import java.util.Properties;
 public class ServiceInstance {
 
     /**
-     * 服务实例的网络地址。例如：127.0.0.1:8080
+     * 服务实例的网络地址。例如：127.0.0.1
      */
     private String address;
+
+    /**
+     * 服务实例的端口号。
+     */
+    private Integer port;
 
     /**
      * 服务端提供的接收地址的路径信息。
@@ -35,21 +40,4 @@ public class ServiceInstance {
      */
     private Properties properties;
 
-    /**
-     * 获取地址中的端口号。
-     * @return 端口号。
-     */
-    public Integer getPort() {
-        URI uri = URI.create(address);
-        return uri.getPort();
-    }
-
-    /**
-     * 获取地址中的主机名。
-     * @return 主机名字符串。
-     */
-    public String getHost() {
-        URI uri = URI.create(address);
-        return uri.getHost();
-    }
 }

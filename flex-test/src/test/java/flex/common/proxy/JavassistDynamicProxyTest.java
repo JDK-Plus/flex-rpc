@@ -1,6 +1,6 @@
 package flex.common.proxy;
 
-import flex.common.global.GreetingService;
+import flex.common.provider.GreetingService;
 import org.junit.Test;
 import plus.jdk.flex.common.global.Invoker;
 import plus.jdk.flex.common.proxy.JavassistDynamicProxy;

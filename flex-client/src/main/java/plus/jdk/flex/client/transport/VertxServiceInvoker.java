@@ -29,7 +29,7 @@ public class VertxServiceInvoker implements IServiceInvoker {
         options.setKeepAlive(true);
         WebClient client = WebClient.create(Vertx.vertx(), options);
         HttpRequest<Buffer> httpRequest =
-                client.get(instance.getPort(), instance.getHost(), instance.getPath()).method(HttpMethod.POST);
+                client.get(instance.getPort(), instance.getAddress(), instance.getPath()).method(HttpMethod.POST);
         httpRequest.connectTimeout(context.getConnectTimeout());
         httpRequest.idleTimeout(context.getSocketTimeout());
         AtomicReference<byte[]> result = new AtomicReference<>();
@@ -40,7 +40,9 @@ public class VertxServiceInvoker implements IServiceInvoker {
             latch.countDown();
         });
         try{
-            Boolean ret = latch.await(context.getSocketTimeout(), TimeUnit.MILLISECONDS);
+            if(!latch.await(context.getSocketTimeout(), TimeUnit.MILLISECONDS)) {
+                throw new FlexRpcException(FlexStatus.read_time_out);
+            }
         }catch(Exception e){
             throw new FlexRpcException(FlexStatus.read_time_out);
         }

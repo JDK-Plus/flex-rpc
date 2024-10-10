@@ -1,6 +1,6 @@
 package flex.common.proxy;
 
-import flex.common.global.GreetingService;
+import flex.common.provider.GreetingService;
 import org.junit.Test;
 import plus.jdk.flex.common.global.Invoker;
 import plus.jdk.flex.common.proxy.JdkDynamicProxy;
@@ -22,6 +22,7 @@ public class JdkDynamicProxyTest {
             }
         });
         assertNotNull(greetingService);
-        assertEquals("Hello tom!", greetingService.hello("tom"));
+        String result = greetingService.hello("tom");
+        assertEquals("Hello tom!", result);
     }
 }

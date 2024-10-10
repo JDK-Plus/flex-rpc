@@ -45,12 +45,12 @@ public class RequestContext {
     /**
      * 获取连接超时时间（毫秒）。默认值为 -1 不使用该值，使用客户端全局配置的值。
      */
-    private transient int connectTimeout = -1;
+    private transient int connectTimeout = 5000;
 
     /**
      * 获取数据读取时间（毫秒）。默认值为 -1 不使用该值，使用客户端全局配置的值。
      */
-    private transient int socketTimeout = -1;
+    private transient int socketTimeout = 5000;
 
     /**
      * 获取传入参数的类别数组。

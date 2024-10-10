@@ -13,6 +13,8 @@ public enum FlexStatus {
     class_not_found(101, "类型 %s 未找到"),
     service_not_found(102, "服务 %s 未找到服务端的实现"),
     response_is_null(103, "返回值为空"),
+
+    cannot_find_available_instances(501, "无法找到远端的可用实例"),
     ;
 
     /**

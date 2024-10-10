@@ -1,4 +1,4 @@
-package flex.common.global;
+package flex.common.provider;
 
 public interface GreetingService {
     String hello(String name);

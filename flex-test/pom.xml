@@ -26,6 +26,16 @@
             <artifactId>flex-server</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>plus.jdk.flex</groupId>
+            <artifactId>flex-client</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
 </project>
